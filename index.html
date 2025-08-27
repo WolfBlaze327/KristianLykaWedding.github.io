@@ -104,7 +104,8 @@
 
     /* ===== DETAILS CARDS ===== */
     .details{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width:900px){.details{grid-template-columns:1fr;}}
+    .details{padding-top: 2vh;}
+    @media (max-width:900px){.details{grid-template-columns:1fr; padding-top: 2vh;}}
     .detail{padding:22px;border-radius:var(--radius);border:1px solid var(--border);background:var(--soft);display:grid;gap:8px}
     .detail svg{width:26px;height:26px}
     .kicker{color:var(--muted);font-size:13px}
@@ -165,131 +166,249 @@
 
     /*Accordion Gallery*/
     .accordionGal {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  height: 400px;
-  gap: 16px;
-  transition: 0.3s;
-}
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      height: 400px;
+      gap: 16px;
+      transition: 0.3s;
+    }
 
-.accordionGal:hover {
-  gap: 0;
-}
+    .accordionGal:hover {
+      gap: 0;
+    }
 
-.accordionGal li {
-  position: relative;
-  overflow: hidden;
-  flex: 0 0 80px;
-  border-radius: 50px;
-  opacity: 0.75;
-  cursor: pointer;
-}
+    .accordionGal li {
+      position: relative;
+      overflow: hidden;
+      flex: 0 0 80px;
+      border-radius: 50px;
+      opacity: 0.75;
+      cursor: pointer;
+    }
 
-.accordionGal li img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.5);
-}
+    .accordionGal li img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0.5);
+    }
 
-.accordionGal li,
-.accordionGal li img,
-.accordionGal li .content,
-.accordionGal li .content span {
-  transition: 0.3s;
-}
+    .accordionGal li,
+    .accordionGal li img,
+    .accordionGal li .content,
+    .accordionGal li .content span {
+      transition: 0.3s;
+    }
 
-.accordionGal h2 {
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 45px;
-  border-bottom: 2px solid #fff;
-  margin-bottom: 10px;
-  white-space: nowrap;
-}
+    .accordionGal h2 {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 45px;
+      border-bottom: 2px solid #fff;
+      margin-bottom: 10px;
+      white-space: nowrap;
+    }
 
-.accordionGal li .content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  color: #fff;
-  padding: 15px;
-  background: #02022e;
-  background: linear-gradient(
-    0deg,
-    rgb(0 0 0 / 70%) 10%,
-    rgb(255 255 255 / 0%) 100%
-  );
-  opacity: 0;
-  visibility: hidden;
-}
+    .accordionGal li .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      color: #fff;
+      padding: 15px;
+      background: #02022e;
+      background: linear-gradient(
+        0deg,
+        rgb(0 0 0 / 70%) 10%,
+        rgb(255 255 255 / 0%) 100%
+      );
+      opacity: 0;
+      visibility: hidden;
+    }
 
-.accordionGal li .content span {
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  bottom: 50px;
-  translate: -50%;
-  scale: 0.85;
-  visibility: hidden;
-  opacity: 0;
-}
+    .accordionGal li .content span {
+      position: absolute;
+      z-index: 3;
+      left: 50%;
+      bottom: 50px;
+      translate: -50%;
+      scale: 0.85;
+      visibility: hidden;
+      opacity: 0;
+    }
 
-.accordionGal li:hover {
-  flex: 0 1 260px;
-  scale: 1.1;
-  z-index: 10;
-  opacity: 1;
-}
+    .accordionGal li:hover {
+      flex: 0 1 260px;
+      scale: 1.1;
+      z-index: 10;
+      opacity: 1;
+    }
 
-.accordionGal li:hover .content {
-  opacity: 1;
-  visibility: visible;
-}
+    .accordionGal li:hover .content {
+      opacity: 1;
+      visibility: visible;
+    }
 
-.accordionGal li:hover span {
-  scale: 1;
-  opacity: 1;
-  visibility: visible;
-}
+    .accordionGal li:hover span {
+      scale: 1;
+      opacity: 1;
+      visibility: visible;
+    }
 
-@media (max-width: 900px) {
-  .accordionGal {
-    flex-direction: column;   /* stack vertically */
-    height: auto;             /* let height grow naturally */
-  }
+    @media (max-width: 900px) {
+      .accordionGal {
+        flex-direction: column;   /* stack vertically */
+        height: auto;             /* let height grow naturally */
+      }
 
-  .accordionGal li {
-    flex: 0 0 80px;           /* collapsed height instead of width */
-    width: 100%;              /* full width */
-    height: 80px;
-    border-radius: 20px;
-  }
+      .accordionGal li {
+        flex: 0 0 80px;           /* collapsed height instead of width */
+        width: 100%;              /* full width */
+        height: 80px;
+        border-radius: 20px;
+      }
 
-  .accordionGal li:hover {
-    flex: 0 1 260px;          /* expanded height */
-    height: 260px;
-    width: 100%;
-  }
+      .accordionGal li:hover {
+        flex: 0 1 260px;          /* expanded height */
+        height: 260px;
+        width: 100%;
+      }
 
-  .accordionGal li img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+      .accordionGal li img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-  .accordionGal li .content span {
-    bottom: 20px;             /* adjust text placement */
-  }
-}
+      .accordionGal li .content span {
+        bottom: 20px;             /* adjust text placement */
+      }
+    }
+    /* Dress Code — symmetrical palette */
+    .palette--grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(84px,1fr));
+      gap: 18px;
+      align-items: start;
+      justify-items: center;
+      margin-top: 14px;
+    }
+
+    .swatch {
+      display: grid;
+      gap: 8px;
+      place-items: center;
+      text-align: center;
+    }
+
+    .swatch .dot {
+      width: 56px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background: var(--swatch, #ccc);
+      box-shadow:
+        0 0 0 3px #fff,
+        0 0 0 1px var(--border),
+        0 8px 18px rgba(0,0,0,.08);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .swatch:hover .dot,
+    .swatch .dot:focus-visible {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow:
+        0 0 0 3px #fff,
+        0 0 0 1px var(--brand-2),
+        0 12px 22px rgba(0,0,0,.12);
+      outline: none;
+    }
+
+    .swatch figcaption {
+      font-size: 12px;
+      line-height: 1.2;
+      color: var(--ink);
+      opacity: .85;
+      max-width: 8ch;
+    }
+
+    @media (max-width: 640px) {
+      .palette--grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+      }
+      .swatch .dot {
+        width: 44px;
+      }
+      .swatch figcaption {
+        font-size: 11px;
+        max-width: 7ch;
+      }
+    }
+
+    /* Map link button */
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 10px 18px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: background .2s ease, transform .15s ease;
+    }
+
+    .map-link .icon {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+    }
+
+    .map-link:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,.12);
+    }
+
+    /* Event Details button */
+    .event-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
+    }
+
+    .event-link .icon {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+    }
+
+    .event-link:hover {
+      background: var(--soft);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    }
+
+    
   </style>
   
 </head>
@@ -331,11 +450,19 @@
       </div>
 
       <div class="cta">
-        <a href="#rsvp" class="btn btn--primary">RSVP Now</a>
-        <a href="#details" class="btn">Event Details</a>
-      </div>
+          <a href="#rsvp" class="btn btn--primary">RSVP Now</a>
+          <a href="#details" class="event-link">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <path d="M8 2v4M16 2v4M3 10h18" />
+            </svg>
+            Event Details
+          </a>
+        </div>
     </div>
   </section>
+
+  
 
   <!-- ===== STORY ===== -->
   <section id="story" class="container reveal" aria-labelledby="story-title">
@@ -350,6 +477,7 @@
         <p>Story content coming soon. We’re saving this space for memories, milestones, and a few favorite photos. 💚</p>
       </div>
     </div>
+    
   </section>
 
   <!-- ===== DETAILS ===== -->
@@ -386,13 +514,34 @@
           </div>
         </div>
       </article>
+    </div>
+    <div class="details" role="list">
       <article class="detail" role="listitem">
-        <div class="kicker">Dress Code</div>
-        <div style="display:flex;gap:10px;align-items:center">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7l9-5 9 5-9 5-9-5z"/><path d="M21 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7"/></svg>
-          <div>
-            <div class="serif" style="font-size:22px">Formal or Semi‑Formal</div>
-            <div>Shades of green</div>
+          <div class="kicker">Dress Code</div>
+        <div>
+          <div class="serif" style="font-size:22px">Formal or Semi-Formal</div>
+          <p>Shades of Green</p>
+          <div class="palette palette--grid">
+            <figure class="swatch">
+              <span class="dot" style="--swatch:#2f4a3c" aria-label="Dark Evergreen"></span>
+              <figcaption>Dark Evergreen</figcaption>
+            </figure>
+            <figure class="swatch">
+              <span class="dot" style="--swatch:#3a5845" aria-label="Deep Eucalyptus"></span>
+              <figcaption>Deep Eucalyptus</figcaption>
+            </figure>
+            <figure class="swatch">
+              <span class="dot" style="--swatch:#6d8c6f" aria-label="Mid Sage"></span>
+              <figcaption>Mid Sage</figcaption>
+            </figure>
+            <figure class="swatch">
+              <span class="dot" style="--swatch:#9fba9e" aria-label="Soft Sage"></span>
+              <figcaption>Soft Sage</figcaption>
+            </figure>
+            <figure class="swatch">
+              <span class="dot" style="--swatch:#c7d8c4" aria-label="Pale Sage"></span>
+              <figcaption>Pale Sage</figcaption>
+            </figure>
           </div>
         </div>
       </article>
@@ -557,8 +706,14 @@
     <div class="grid-2">
       <div class="card pad">
         <h3 class="serif" style="font-size:22px;margin-bottom:10px">Getting There</h3>
-        <p>Venue: <strong>The Veranda Tagaytay</strong>. Parking is available on‑site.</p>
-        <p style="margin-top:8px"><a class="btn" href="https://maps.app.goo.gl/sFs297tg3bCyno2a6" target="_blank" rel="noopener">Open in Google Maps</a></p>
+        <p>Venue: <strong>The Veranda Tagaytay</strong>. Parking is available on-site.</p>
+        <a class="map-link" href="https://maps.app.goo.gl/sFs297tg3bCyno2a6" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" />
+            <circle cx="12" cy="9" r="2.5" />
+          </svg>
+          Open in Google Maps
+        </a>
       </div>
       <div class="map" aria-label="Map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.4702678241283!2d120.92541!3d14.108419199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd77005c3a1d67%3A0x73c3b95574d24fb8!2sThe%20veranda%20tagaytay!5e0!3m2!1sen!2sph!4v1756224912046!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -569,7 +724,7 @@
   <!-- ===== REGISTRY ===== -->
   <section id="registry" class="container reveal" aria-labelledby="registry-title">
     <h2 class="section-title serif" id="registry-title">Gifts</h2>
-    <p class="lead" style="margin-bottom:18px">We appreciate gifts, but we prefer cash. Thank you for celebrating with us!</p>
+    <p class="lead" style="margin-bottom:18px">Your presence is already a gift to us, but if you wish to give, we prefer a monetary gift to help us start our new life together. We appreciate your love and support as we start this new chapter!</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap">
       <a class="btn" href="#" onclick="alert('Cash fund details coming soon.');return false;">Cash Fund</a>
     </div>
@@ -745,6 +900,8 @@
 
     /* ===== Year ===== */
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    
   </script>
 </body>
 </html>
