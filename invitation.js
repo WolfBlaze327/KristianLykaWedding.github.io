@@ -246,7 +246,7 @@ const toInt = v => {
         const remaining = Math.max(0, maxNum - confirmed);
 
         if (nameEl) nameEl.textContent = firstName || 'Guest';
-        if (remainEl) remainEl.textContent = remaining;
+        if (remainEl) remainEl.textContent = remaining+ ' out of '+ maxNum;
 
         // Setup seat input limits + live validation
         const setDisabled = (flag) => { if (submitBtn) submitBtn.disabled = !!flag; };

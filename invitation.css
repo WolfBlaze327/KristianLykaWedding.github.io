@@ -40,15 +40,52 @@ body{background:#fff;color:var(--ink);font-family:Inter,system-ui,-apple-system,
   .menu.is-open{display:flex;position:absolute;top:64px;right:16px;flex-direction:column;gap:10px;padding:14px;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
 }
 
-/* ===== HERO ===== */
+/* ===== HERO =====
 .hero{position:relative;min-height:88svh;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden}
-.hero__bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2100&auto=format&fit=crop') center/cover no-repeat}
+/* .hero__bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2100&auto=format&fit=crop') center/cover no-repeat} */
+/* .hero__bg{position:absolute;inset:0;background:url('./PrenupPictures/Hero.jpg') center/cover no-repeat}
 .hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(47,74,60,.65) 0%, rgba(109,140,111,.45) 60%, rgba(47,74,60,.60) 100%)}
 .hero__content{position:relative;z-index:1;padding:24px}
 .hero h1{font-size:clamp(42px,7vw,96px);line-height:1.02}
 .hero h1 .amp{color:var(--green-200)}
 .hero .sub{margin-top:8px;font-size:clamp(16px,2.4vw,22px);opacity:.95}
-.hero .cta{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero .cta{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap} */
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 88svh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background: url('../PrenupPictures/Hero.jpg') center left /cover no-repeat;
+  background-size: 140%;
+  /* background: url('/PrenupPictures/Hero.jpg') center/cover no-repeat; */
+}
+
+.hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(47,74,60,.65) 0%,
+    rgba(109,140,111,.45) 60%,
+    rgba(47,74,60,.60) 100%
+  );
+}
+
+.hero__content { position: relative; z-index: 1; padding: 24px; }
+.hero h1 { font-size: clamp(42px,7vw,96px); line-height: 1.02; }
+.hero h1 .amp { color: var(--green-200); }
+.hero .sub { margin-top: 8px; font-size: clamp(16px,2.4vw,22px); opacity: .95; }
+.hero .sub2 { margin-top: 8px; font-size: clamp(16px,2.2vw,20px); opacity: .95; }
+.hero .cta { margin-top: 22px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 /* Countdown pill */
 .countdown{--pad:14px;display:inline-flex;gap:10px;padding:var(--pad);border-radius:999px;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);margin-top:18px}
@@ -67,6 +104,48 @@ section{padding-block:clamp(56px,9vw,108px)}
 @media (max-width:920px){.grid-2{grid-template-columns:1fr;gap:28px}}
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 8px 32px rgba(0,0,0,.04)}
 .card.pad{padding:clamp(18px,3.2vw,32px)}
+/* Make the media column larger on desktop */
+@media (min-width: 980px) {
+  #story .grid-2 {
+    grid-template-columns: 1.6fr 1fr; /* media gets more room */
+    align-items: start;
+  }
+}
+
+/* Remove inner padding so the video goes edge-to-edge inside the card */
+.video-card {
+  padding: 0;            /* overrides .card.pad spacing if any */
+  overflow: hidden;
+  border-radius: 18px;   /* keep your rounded look on the card itself */
+}
+
+/* Responsive YouTube embed, bigger by default */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  /* aspect-ratio: 16 / 9;  modern way (preferred) */
+  min-height: 380px;     /* ensures it doesn’t look tiny on wider screens */
+  overflow: hidden;
+}
+
+/* Fallback if your build target needs it
+.video-wrapper { padding-top: 56.25%; }
+.video-wrapper iframe { position:absolute; inset:0; } 
+*/
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Optional: bump the card’s shadow a touch since it’s a hero media element */
+.video-card {
+  box-shadow: 0 14px 40px rgba(0,0,0,.08);
+}
 
 /* ===== DETAILS ===== */
 .details{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -83,7 +162,7 @@ section{padding-block:clamp(56px,9vw,108px)}
 
 /* ===== GALLERY ===== */
 .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
-.gallery a{line-height:0;border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+ .gallery a{line-height:0;border-radius:14px;overflow:hidden;}/*border:1px solid var(--border) */
 .gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1}
 .span-6{grid-column:span 6}
 .span-3{grid-column:span 3}
