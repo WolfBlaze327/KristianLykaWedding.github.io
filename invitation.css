@@ -65,7 +65,7 @@ body{background:#fff;color:var(--ink);font-family:Inter,system-ui,-apple-system,
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: url('/PrenupPictures/Hero.jpg') center left /cover no-repeat;
+  background: url('PrenupPictures/Hero.jpg') center left /cover no-repeat;
   background-size: 140%;
   /* background: url('/PrenupPictures/Hero.jpg') center/cover no-repeat; */
 }
@@ -267,5 +267,6 @@ footer{padding:40px 0;border-top:1px solid var(--border);color:#6b7280}
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
 
 
