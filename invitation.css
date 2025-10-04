@@ -65,7 +65,7 @@ body{background:#fff;color:var(--ink);font-family:Inter,system-ui,-apple-system,
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: url('PrenupPictures/Hero.jpg') center left /cover no-repeat;
+  background: url('./PrenupPictures/Hero.jpg') center left /cover no-repeat;
   background-size: 140%;
   /* background: url('/PrenupPictures/Hero.jpg') center/cover no-repeat; */
 }
