@@ -104,47 +104,43 @@ section{padding-block:clamp(56px,9vw,108px)}
 @media (max-width:920px){.grid-2{grid-template-columns:1fr;gap:28px}}
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 8px 32px rgba(0,0,0,.04)}
 .card.pad{padding:clamp(18px,3.2vw,32px)}
-/* Make the media column larger on desktop */
+/* Give the media column more room and avoid intrinsic min-content shrinking */
 @media (min-width: 980px) {
   #story .grid-2 {
-    grid-template-columns: 1.6fr 1fr; /* media gets more room */
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
     align-items: start;
   }
 }
 
-/* Remove inner padding so the video goes edge-to-edge inside the card */
+/* Edge-to-edge video inside the card */
 .video-card {
-  padding: 0;            /* overrides .card.pad spacing if any */
+  padding: 0;                /* remove inner spacing */
   overflow: hidden;
-  border-radius: 18px;   /* keep your rounded look on the card itself */
+  border-radius: 18px;       /* keep your rounded look */
+  box-shadow: 0 14px 40px rgba(0,0,0,.08);
 }
 
-/* Responsive YouTube embed, bigger by default */
+/* Robust responsive YouTube wrapper (works great on GitHub Pages) */
 .video-wrapper {
   position: relative;
   width: 100%;
-  /* aspect-ratio: 16 / 9;  modern way (preferred) */
-  min-height: 380px;     /* ensures it doesn’t look tiny on wider screens */
-  overflow: hidden;
+  /* Use padding-top technique for widest compatibility */
+  padding-top: 56.25%;       /* 16:9 aspect ratio */
 }
 
-/* Fallback if your build target needs it
-.video-wrapper { padding-top: 56.25%; }
-.video-wrapper iframe { position:absolute; inset:0; } 
-*/
-
+/* Force iframe to fill the wrapper regardless of inline width/height attrs */
 .video-wrapper iframe {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   border: 0;
   display: block;
 }
 
-/* Optional: bump the card’s shadow a touch since it’s a hero media element */
-.video-card {
-  box-shadow: 0 14px 40px rgba(0,0,0,.08);
+/* Optional: make the video visually larger on desktop */
+@media (min-width: 1200px) {
+  .video-wrapper { max-width: 100%; }
 }
 
 /* ===== DETAILS ===== */
@@ -271,3 +267,4 @@ footer{padding:40px 0;border-top:1px solid var(--border);color:#6b7280}
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
