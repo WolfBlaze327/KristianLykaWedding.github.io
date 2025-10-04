@@ -100,7 +100,7 @@ section{padding-block:clamp(56px,9vw,108px)}
 .lead{font-size:clamp(16px,2.2vw,20px);color:#4b5563}
 
 /* ===== ABOUT / STORY ===== */
-.grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 @media (max-width:920px){.grid-2{grid-template-columns:1fr;gap:28px}}
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 8px 32px rgba(0,0,0,.04)}
 .card.pad{padding:clamp(18px,3.2vw,32px)}
